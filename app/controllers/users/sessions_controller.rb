@@ -3,6 +3,8 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   respond_to :json
 
+  skip_after_action :verify_authorized
+
   private
 
   def respond_with(current_user, _opts = {})
