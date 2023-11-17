@@ -15,21 +15,20 @@ gem "standardrb"
 gem "standard-rails"
 gem "rack-cors"
 gem "redis", ">= 4.0.1"
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ]  
+  gem "debug", platforms: %i[mri windows]
 end
 
 group :development do
-  
 end
 
 group :test do
-  gem 'capybara'
-  gem 'database_cleaner'
+  gem "capybara"
+  gem "database_cleaner"
   gem "faker"
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
   gem "rspec-rails"
   gem "shoulda"
 end
