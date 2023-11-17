@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable, :validatable, :jwt_authenticatable, jwt_revocation_strategy: self
 
+  roles :admin, :manager, :author, prefix: "is_"
+
   def jwt_payload
     {"roles" => roles.to_a}
   end
