@@ -11,6 +11,8 @@ gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "sentry-ruby"
 gem "sentry-rails"
+gem "standardrb"
+gem "standard-rails"
 gem "rack-cors"
 gem "redis", ">= 4.0.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
