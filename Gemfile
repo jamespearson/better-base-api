@@ -10,10 +10,13 @@ gem "bootsnap", require: false
 gem "devise"
 gem "devise-jwt"
 gem "jsonapi-serializer"
+gem "jwt"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
+gem "role_model"
 gem "sentry-ruby"
 gem "sentry-rails"
+gem "sidekiq"
 gem "standardrb"
 gem "standard-rails"
 gem "rack-cors"
@@ -21,6 +24,7 @@ gem "redis", ">= 4.0.1"
 gem "tzinfo-data", platforms: %i[windows jruby]
 
 group :development, :test do
+  gem "byebug"
   gem "debug", platforms: %i[mri windows]
 end
 
