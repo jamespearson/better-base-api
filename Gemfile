@@ -11,6 +11,8 @@ gem "bootsnap", require: false
 gem "devise"
 gem "devise-jwt"
 gem "jsonapi-serializer"
+gem "jsonapi_errors_handler", github: "jamespearson/jsonapi_errors_handler", branch: "master"
+
 gem "jwt"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"

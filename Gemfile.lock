@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jamespearson/jsonapi_errors_handler.git
+  revision: e591d053b998072e21814da496f8788a8726b247
+  branch: master
+  specs:
+    jsonapi_errors_handler (0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -415,6 +422,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   jsonapi-serializer
+  jsonapi_errors_handler!
   jwt
   pg (~> 1.1)
   puma (>= 5.0)
