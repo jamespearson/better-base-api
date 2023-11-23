@@ -9,6 +9,6 @@ class User < ApplicationRecord
   roles :admin, :manager, :author, prefix: "is_"
 
   def jwt_payload
-    {"roles" => roles.to_a}
+    super.merge("roles" => roles.to_a)
   end
 end

@@ -12,14 +12,7 @@ RSpec.describe "RegistrationControllers", type: :request do
         expect(response).to have_http_status(:success)
 
         @created_user = User.find_by(email: @user.email)
-
-        json = JSON.parse(response.body)
-
-        expect(json["status"]["code"]).to eq(200)
-        expect(json["status"]["message"]).to eq("Signed up successfully.")
-
-        expected_data = JSON.parse(UserSerializer.new(@created_user).serializable_hash[:data].to_json).deep_symbolize_keys
-        expect(json["data"].deep_symbolize_keys).to eq(expected_data)
+        expect(JSON.parse(response.body).deep_symbolize_keys).to eq(expected_user_response(@created_user))
       end
 
       it("should return a JWT in the headers") do
@@ -39,8 +32,6 @@ RSpec.describe "RegistrationControllers", type: :request do
       expect(response).to have_http_status(:unprocessable_entity)
 
       json = JSON.parse(response.body)
-      expect(json["status"]["code"]).to eq(422)
-      expect(json["status"]["message"]).to eq("User couldn't be created successfully. Email is invalid")
     end
 
     it("should not signup a duplicate user") do
@@ -51,8 +42,22 @@ RSpec.describe "RegistrationControllers", type: :request do
 
       json = JSON.parse(response.body)
 
-      expect(json["status"]["code"]).to eq(422)
-      expect(json["status"]["message"]).to eq("User couldn't be created successfully. Email has already been taken")
+      expect(json).to eq(
+        {"errors" => [
+          {
+            "status" => "422",
+            "title" => "Invalid request",
+            "detail" => ["has already been taken"],
+            "source" => {"pointer" => "/data/attributes/email"}
+          }
+        ]}
+      )
+    end
+
+    private
+
+    def expected_user_response(user)
+      JSON.parse(UserSerializer.new(@created_user).serializable_hash.to_json).deep_symbolize_keys
     end
   end
 end

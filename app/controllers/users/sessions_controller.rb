@@ -8,13 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(current_user, _opts = {})
-    render json: {
-      status: {
-        code: 200,
-        message: "Logged in successfully."
-      },
-      data: UserSerializer.new(current_user).serializable_hash[:data]
-    }, status: :ok
+    render json: UserSerializer.new(current_user).serializable_hash, status: :ok
   end
 
   def respond_to_on_destroy
@@ -24,18 +18,9 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     if current_user
-      render json: {
-        status: {
-          code: 200,
-          message: "Logged in successfully."
-        },
-        data: UserSerializer.new(current_user).serializable_hash[:data]
-      }, status: :ok
+      render json: UserSerializer.new(current_user).serializable_hash, status: :ok
     else
-      render json: {
-        status: 401,
-        message: "Couldn't find an active session."
-      }, status: :unauthorized
+      raise JsonapiErrorsHandler::Errors::NotFound
     end
   end
 

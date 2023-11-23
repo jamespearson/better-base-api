@@ -13,11 +13,7 @@ RSpec.describe "Users::Sessions", type: :request do
         expect(response).to have_http_status(:success)
 
         json = JSON.parse(response.body)
-        expect(json["status"]["code"]).to eq(200)
-        expect(json["status"]["message"]).to eq("Logged in successfully.")
-
-        expected_data = JSON.parse(UserSerializer.new(@user).serializable_hash[:data].to_json).deep_symbolize_keys
-        expect(json["data"].deep_symbolize_keys).to eq(expected_data)
+        expect(json).to eq({"data" => {"id" => @user.id, "type" => "user", "attributes" => {"id" => @user.id, "email" => @user.email}}})
       end
 
       it("should return a JWT in the headers") do
