@@ -1,6 +1,7 @@
 # Base API Project
 
 [![Code Climate](https://codeclimate.com/github/jamespearson/better-base-api.png)](https://codeclimate.com/github/jamespearson/better-base-api)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/jamespearson/better-base-api/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/jamespearson/better-base-api/tree/main)
 [![Ruby Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/standardrb/standard)
 
 ## Requirements
