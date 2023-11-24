@@ -46,5 +46,6 @@ group :test do
   gem "factory_bot_rails"
   gem "rspec_junit_formatter"
   gem "rspec-rails"
+  gem "simplecov", require: false
   gem "shoulda"
 end
