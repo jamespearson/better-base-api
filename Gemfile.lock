@@ -95,6 +95,7 @@ GEM
     bigdecimal (3.1.4)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
+    brakeman (6.0.1)
     builder (3.2.4)
     byebug (11.1.3)
     capistrano (3.18.0)
@@ -410,6 +411,7 @@ DEPENDENCIES
   audited
   bcrypt (~> 3.1.7)
   bootsnap
+  brakeman
   byebug
   capistrano (~> 3.10)
   capistrano-bundler (~> 2.0)

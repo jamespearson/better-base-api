@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.2"
 
 gem "audited"
 gem "bcrypt", "~> 3.1.7"
+gem "brakeman"
 gem "bootsnap", require: false
 gem "devise"
 gem "devise-jwt"
