@@ -12,8 +12,8 @@ RSpec.describe "Users::Sessions", type: :request do
 
         expect(response).to have_http_status(:success)
 
-        json = JSON.parse(response.body)
-        expect(json).to eq({"data" => {"id" => @user.id, "type" => "user", "attributes" => {"id" => @user.id, "email" => @user.email}}})
+        json = JSON.parse(response.body).deep_symbolize_keys
+        expect(json).to eq(expected_user_response(@user))
       end
 
       it("should return a JWT in the headers") do
@@ -60,5 +60,11 @@ RSpec.describe "Users::Sessions", type: :request do
       expect(response).to have_http_status(:unauthorized)
       expect(json["status"]["message"]).to eq("Invalid Email or password.")
     end
+  end
+
+  private
+
+  def expected_user_response(user)
+    JSON.parse(CurrentUserSerializer.new(user).serializable_hash.to_json).deep_symbolize_keys
   end
 end

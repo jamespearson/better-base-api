@@ -57,7 +57,7 @@ RSpec.describe "RegistrationControllers", type: :request do
     private
 
     def expected_user_response(user)
-      JSON.parse(UserSerializer.new(@created_user).serializable_hash.to_json).deep_symbolize_keys
+      JSON.parse(CurrentUserSerializer.new(user).serializable_hash.to_json).deep_symbolize_keys
     end
   end
 end

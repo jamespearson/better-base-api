@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def respond_with(current_user, _opts = {})
-    render json: UserSerializer.new(current_user).serializable_hash, status: :ok
+    render json: CurrentUserSerializer.new(current_user).serializable_hash, status: :ok
   end
 
   def respond_to_on_destroy
@@ -18,7 +18,7 @@ class Users::SessionsController < Devise::SessionsController
     end
 
     if current_user
-      render json: UserSerializer.new(current_user).serializable_hash, status: :ok
+      render json: CurrentUserSerializer.new(current_user).serializable_hash, status: :ok
     else
       raise JsonapiErrorsHandler::Errors::NotFound
     end
