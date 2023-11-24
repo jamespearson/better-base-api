@@ -1,5 +1,6 @@
 # Base API Project
 
+[![Code Climate](https://codeclimate.com/github/jamespearson/better-base-api.png)](https://codeclimate.com/github/jamespearson/better-base-api)
 [![Ruby Code Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/standardrb/standard)
 
 ## Requirements
@@ -41,6 +42,11 @@ Update the deploy file at config/deploy.rb with values as required:
 - linked_files: Set to a list of files that should be shared and persisted over all releases, for e.g. `config/database.yml`, `config/master.key`, config/application.yml, etc. These files will not be deleted/reset in every release (other files will!!)
 
 Update `config/deploy/staging.rb` and `config/deploy/production.rb` to meet your requirements.
+
+### Extras
+
+- Change the URL for the CodeClimate Badge in the ReadMe, letting CodeClimate review your PRs and code is encourged.
+-
 
 ## Development
 

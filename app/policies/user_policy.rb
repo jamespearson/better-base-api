@@ -1,4 +1,13 @@
 class UserPolicy < ApplicationPolicy
+  def index?
+    user.present?
+  end
+
+  # Only admins or the user itself can update a record.
+  def show?
+    user.is_admin? || user.id == record.id
+  end
+
   # Only admins or the user itself can update a record.
   def update?
     user.is_admin? || user.id == record.id

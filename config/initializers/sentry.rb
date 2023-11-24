@@ -1,6 +1,6 @@
 sentry_dsn = Rails.application.credentials.dig(:sentry, :dsn)
 
-if sentry_dsn.present?
+if !Rails.env.development? && sentry_dsn.present?
   Sentry.init do |config|
     config.dsn = Rails.application.credentials.dig(:sentry, :dsn)
     config.breadcrumbs_logger = [:active_support_logger, :http_logger]
